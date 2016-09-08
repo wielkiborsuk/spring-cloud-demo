@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Asciilio - picture details</title>
+
+    <!-- Material Design Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="/css/mdb.css" rel="stylesheet">
+
+    <!-- Template style -->
+    <link href="/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+<!-- Navigation -->
+{{> navigation}}
+
+
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-8 col-md-offset-2">
+            <img class="img-responsive z-depth-2" src="{{picture.imageUrlAsString}}" alt="">
+            <div class="caption-full">
+                <div class="text-center">
+                    <button type="button"
+                            onclick="location.href='/pictures/{{picture.id}}/ascii';"
+                            class="btn btn-success waves-effect waves-light">
+                        ASCII
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!-- /.container -->
+
+<div class="container">
+
+    <hr>
+
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<!-- Navigation -->
+{{> footer}}
+
+
+<!-- SCRIPTS -->
+
+<!-- JQuery -->
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+<!-- Material Design Bootstrap -->
+<script type="text/javascript" src="/js/mdb.js"></script>
+
+
+</body>
+
+</html>
