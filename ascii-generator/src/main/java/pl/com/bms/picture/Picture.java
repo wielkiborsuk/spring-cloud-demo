@@ -6,11 +6,8 @@ import javax.persistence.Id;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-@Entity
 public class Picture {
 
-    @Id
-    @GeneratedValue
     private Long id;
     private String title;
     private String imageUrl;
@@ -34,5 +31,13 @@ public class Picture {
 
     public String getImageUrlAsString() {
         return this.imageUrl;
+    }
+
+    public void setId(Long id) {
+      this.id = id;
+    }
+
+    public Long getId() {
+      return this.id;
     }
 }
