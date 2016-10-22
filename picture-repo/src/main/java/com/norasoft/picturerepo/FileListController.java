@@ -1,4 +1,4 @@
-package pl.com.bms;
+package com.norasoft.picturerepo;
 
 import java.io.BufferedReader;
 import java.io.IOException;

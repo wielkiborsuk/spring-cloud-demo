@@ -1,4 +1,4 @@
-package pl.com.bms.generator;
+package com.norasoft.generator.generator;
 
 public class HtmlAscii {
     private final ColourfulAscii ascii;

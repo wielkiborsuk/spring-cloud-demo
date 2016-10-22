@@ -1,4 +1,4 @@
-package pl.com.bms.generator;
+package com.norasoft.generator.generator;
 
 import org.roqe.jitac.*;
 import org.springframework.stereotype.Component;

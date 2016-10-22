@@ -1,12 +1,12 @@
-package pl.com.bms.generator;
+package com.norasoft.generator.generator;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import pl.com.bms.generator.ColourfulAscii;
-import pl.com.bms.generator.HtmlAscii;
-import pl.com.bms.generator.PictureToAsciiConverter;
+import com.norasoft.generator.generator.ColourfulAscii;
+import com.norasoft.generator.generator.HtmlAscii;
+import com.norasoft.generator.generator.PictureToAsciiConverter;
 
 import java.io.File;
 import java.io.IOException;

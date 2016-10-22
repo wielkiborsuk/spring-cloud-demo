@@ -1,4 +1,4 @@
-package pl.com.bms;
+package com.norasoft.generator;
 
 import com.google.common.collect.ImmutableMap;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.servlet.ModelAndView;
-import pl.com.bms.generator.AsciiService;
-import pl.com.bms.generator.HtmlAscii;
-import pl.com.bms.picture.Picture;
-import pl.com.bms.picture.PictureRepository;
+import com.norasoft.generator.generator.AsciiService;
+import com.norasoft.generator.generator.HtmlAscii;
+import com.norasoft.generator.picture.Picture;
+import com.norasoft.generator.picture.PictureRepository;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

@@ -1,4 +1,4 @@
-package pl.com.bms.picture;
+package com.norasoft.generator.picture;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

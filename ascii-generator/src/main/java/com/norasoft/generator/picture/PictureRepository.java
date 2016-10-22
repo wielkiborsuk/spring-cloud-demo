@@ -1,4 +1,4 @@
-package pl.com.bms.picture;
+package com.norasoft.generator.picture;
 
 import java.net.MalformedURLException;
 import java.net.URI;
