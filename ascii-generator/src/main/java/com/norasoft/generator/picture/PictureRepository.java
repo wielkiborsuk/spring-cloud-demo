@@ -10,9 +10,15 @@ import java.util.Optional;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
+
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+
+import org.springframework.stereotype.Component;
+
 import com.norasoft.generator.picture.Picture;
 import com.norasoft.generator.picture.PictureRepoClient;
 
@@ -24,15 +30,12 @@ public class PictureRepository {
   private boolean runOnce = false;
 
   @Autowired
+  private DiscoveryClient discoveryClient;
+
+  @Autowired
   private PictureRepoClient pictureRepoClient;
 
-  //@PostConstruct
   private void init() {
-    //RestTemplate restTemplate = new RestTemplate();
-    //Class<List<String>> clazz = (Class<List<String>>) (Class<?>) List.class;
-    //ResponseEntity<List<String>> listResponse = restTemplate.getForEntity(getResourceURL("list").toString(), clazz);
-    //List<String> list = listResponse.getBody();
-    
     if (runOnce) {
       return;
     }
@@ -72,12 +75,10 @@ public class PictureRepository {
   }
 
   private URL getResourceURL(String path) {
-    String pictureProtocol = "http";
-    Integer picturePort = 7777;
-    String pictureHost = "localhost";
+    ServiceInstance serviceInstance = discoveryClient.getInstances("picture-repo").get(0);
 
     try {
-      URI uri = new URI(pictureProtocol, null, pictureHost, picturePort, "/"+path, null, null);
+      URI uri = new URI("http", null, serviceInstance.getHost(), serviceInstance.getPort(), "/"+path, null, null);
       return uri.toURL();
     }
     catch (Exception e) {
