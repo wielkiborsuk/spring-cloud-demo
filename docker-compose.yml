@@ -1,0 +1,16 @@
+version: '2'
+services:
+  eureka:
+    image: 'eureka:1.0.0-SNAPSHOT'
+    ports:
+      - '8761:8761'
+  picture-repo:
+    image: 'picture-repo:1.0.0-SNAPSHOT'
+    command: java -Djava.security.egd=file:/dev/./urandom -jar /app.jar --eureka-uri=http://eureka:8761
+    ports:
+      - '7777:7777'
+  ascii-generator:
+    image: 'ascii-generator:1.0.0-SNAPSHOT'
+    command: java -Djava.security.egd=file:/dev/./urandom -jar /app.jar --eureka-uri=http://eureka:8761
+    ports:
+      - '8080:8080'
