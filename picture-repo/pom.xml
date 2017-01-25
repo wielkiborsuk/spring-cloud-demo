@@ -43,7 +43,7 @@
         <groupId>com.spotify</groupId>
         <artifactId>docker-maven-plugin</artifactId>
         <configuration>
-          <imageName>${project.name}:${project.version}</imageName>
+          <imageName>${project.name}</imageName>
           <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
           <skipDockerBuild>false</skipDockerBuild>
           <resources>
