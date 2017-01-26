@@ -6,11 +6,18 @@ services:
       - '8761:8761'
   picture-repo:
     image: 'picture-repo'
-    command: java -Djava.security.egd=file:/dev/./urandom -jar /app.jar --eureka-uri=http://eureka:8761
     ports:
       - '7777:7777'
+    environment:
+      - EUREKA_URI=http://eureka:8761
+    depends_on:
+      - eureka
   ascii-generator:
     image: 'ascii-generator'
-    command: java -Djava.security.egd=file:/dev/./urandom -jar /app.jar --eureka-uri=http://eureka:8761
     ports:
       - '8080:8080'
+    environment:
+      - EUREKA_URI=http://eureka:8761
+    depends_on:
+      - eureka
+      - picture-repo
