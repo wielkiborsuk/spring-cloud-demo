@@ -2,10 +2,12 @@ version: '2'
 services:
   eureka:
     image: 'eureka'
+    hostname: eureka
     ports:
       - '8761:8761'
   picture-repo:
     image: 'picture-repo'
+    hostname: picture-repo
     ports:
       - '7777:7777'
     environment:
@@ -14,6 +16,7 @@ services:
       - eureka
   ascii-generator:
     image: 'ascii-generator'
+    hostname: ascii-generator
     ports:
       - '8080:8080'
     environment:

@@ -1,11 +1,14 @@
 package com.norasoft.picturerepo;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.context.ApplicationContext;
+
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,18 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController(value = "/")
 public class FileListController {
 
+  @Autowired
+  private ApplicationContext aC;
+
   @RequestMapping(path="list")
   public List<String> listAvailableFiles() throws IOException {
-    InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("static");
-    BufferedReader br = new BufferedReader(new InputStreamReader(is));
-
-    String resource;
-    List<String> res = new ArrayList<String>();
-
-    while( (resource = br.readLine()) != null ) {
-      res.add(resource);
-    }
-
-    return res;
+    return Arrays.asList(aC.getResources("classpath:/static/*")).stream()
+      .map(r -> r.getFilename()).collect(Collectors.toList());
   }
 }
