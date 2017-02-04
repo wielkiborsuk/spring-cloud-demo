@@ -1,8 +1,5 @@
 package com.norasoft.generator.picture;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.net.MalformedURLException;
 import java.net.URL;
 
