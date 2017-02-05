@@ -14,6 +14,7 @@
         <module>eureka</module>
         <module>picture-repo</module>
         <module>ascii-generator</module>
+        <module>frontend</module>
     </modules>
 
     <parent>

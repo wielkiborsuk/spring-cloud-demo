@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Asciilio</title>
+
+    <!-- Material Design Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.css" rel="stylesheet">
+
+    <!-- Template style -->
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+<body>
+<!-- Navigation -->
+{{> navigation}}
+
+<!-- Page Content -->
+
+<!-- /.container -->
+<div class="container">
+
+    <!-- Page Header -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Our gallery
+                <small>just for you</small>
+            </h1>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Content Row -->
+    <div class="row">
+        {{#pictures}}
+        <div class="col-md-4">
+            <div class="card hoverable">
+                <div class="card-image" onclick="location.href='pictures/{{id}}';">
+                    <img src="{{imageUrl}}" href="pictures/{{id}}" >
+                    <span class="card-title">{{title}}</span>
+                </div>
+                <div class="card-content description">
+                </div>
+                <div class="card-action">
+                    <button type="button"
+                            onclick="location.href='pictures/{{id}}';"
+                            class="btn btn-primary waves-effect waves-light">Read more</button>
+                </div>
+            </div>
+        </div>
+        {{/pictures}}
+    </div>
+    <!-- /.row -->
+
+    <hr>
+    <!-- Footer -->
+    {{> footer}}
+
+
+</div>
+
+
+<!-- SCRIPTS -->
+
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<!-- Material Design Bootstrap -->
+<script type="text/javascript" src="js/mdb.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.dotdotdot/1.7.4/jquery.dotdotdot.min.js"></script>
+
+<script>
+    $(".description").dotdotdot();
+</script>
+
+</body>
+
+</html>
