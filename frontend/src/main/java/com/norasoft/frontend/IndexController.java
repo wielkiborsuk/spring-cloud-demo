@@ -25,13 +25,13 @@ import java.util.Map;
 public class IndexController {
     private static final ModelAndView NOT_FOUND = new ModelAndView("/404.html");
     private final PictureRepository pictureRepository;
-    //private final AsciiServiceClient asciiServiceClient;
+    private final AsciiServiceClient asciiServiceClient;
 
     @Autowired
-    //public IndexController(PictureRepository pictureRepository, AsciiServiceClient asciiServiceClient) {
-    public IndexController(PictureRepository pictureRepository) {
+    public IndexController(PictureRepository pictureRepository, AsciiServiceClient asciiServiceClient) {
+    //public IndexController(PictureRepository pictureRepository) {
         this.pictureRepository = pictureRepository;
-        //this.asciiServiceClient = asciiServiceClient;
+        this.asciiServiceClient = asciiServiceClient;
     }
 
 
@@ -48,7 +48,7 @@ public class IndexController {
                 .map(picture -> new ModelAndView("details",
                       ImmutableMap.of(
                         "picture", picture,
-                        "ascii", ImmutableMap.of("content", "no ascii representation yet"))))
+                        "ascii", ImmutableMap.of("content", asciiServiceClient.generateAscii(id)))))
                 .orElseGet(() -> NOT_FOUND);
     }
 

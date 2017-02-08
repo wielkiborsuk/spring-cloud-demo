@@ -3,12 +3,15 @@ package com.norasoft.frontend.picture;
 import java.util.List;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
+
 import org.springframework.stereotype.Component;
+
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-//@Component
-//@FeignClient("ascii-generator")
+@Component
+@FeignClient("ascii-generator")
 public interface AsciiServiceClient {
-  //@RequestMapping(path="/pictures/{id}/ascii")
-  String generateAscii();
+  @RequestMapping(path="/pictures/{id}/ascii")
+  String generateAscii(@PathVariable(value = "id") Long id);
 }
