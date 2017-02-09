@@ -29,7 +29,6 @@ public class IndexController {
 
     @Autowired
     public IndexController(PictureRepository pictureRepository, AsciiServiceClient asciiServiceClient) {
-    //public IndexController(PictureRepository pictureRepository) {
         this.pictureRepository = pictureRepository;
         this.asciiServiceClient = asciiServiceClient;
     }
@@ -48,20 +47,9 @@ public class IndexController {
                 .map(picture -> new ModelAndView("details",
                       ImmutableMap.of(
                         "picture", picture,
-                        "ascii", ImmutableMap.of("content", asciiServiceClient.generateAscii(id)))))
+                        "ascii", ImmutableMap.of("content", asciiServiceClient.generateAscii(picture.getUrl().toString())))))
                 .orElseGet(() -> NOT_FOUND);
     }
-
-
-    //@ResponseBody
-    //@RequestMapping(value="/pictures/{id}/ascii", method=RequestMethod.GET)
-    //public ResponseEntity<String> ascii(@PathVariable Long id) {
-        //return pictureRepository.findOne(id)
-                //.map(picture -> asciiService.generateAscii(picture.getUrl()))
-                //.map(generatedAscii -> new ResponseEntity<>(generatedAscii.asString(), HttpStatus.OK))
-                //.orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
-    //}
-
 
     @RequestMapping(value="/", method=RequestMethod.GET)
     public ModelAndView index() {

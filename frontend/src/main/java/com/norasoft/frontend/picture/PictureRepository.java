@@ -36,15 +36,20 @@ public class PictureRepository {
   private PictureRepoClient pictureRepoClient;
 
   private void init() {
-    if (runOnce) {
-      return;
+    try {
+      if (runOnce) {
+        return;
+      }
+
+      List<String> list = pictureRepoClient.listPictures();
+
+      for (String filename : list) {
+        save(new Picture(getImageName(filename), getResourceURL(filename)));
+      }
+      runOnce = true;
     }
-    runOnce = true;
-
-    List<String> list = pictureRepoClient.listPictures();
-
-    for (String filename : list) {
-      save(new Picture(getImageName(filename), getResourceURL(filename)));
+    catch (Exception e) {
+      e.printStackTrace();
     }
   }
 
