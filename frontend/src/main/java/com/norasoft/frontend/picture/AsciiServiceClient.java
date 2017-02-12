@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Component
-@FeignClient("ascii-generator")
+@FeignClient(name = "ascii-generator", fallback = AsciiServiceFallbackClient.class)
 public interface AsciiServiceClient {
   @RequestMapping(path="/ascii", method = RequestMethod.POST)
   String generateAscii(@RequestBody String url);
