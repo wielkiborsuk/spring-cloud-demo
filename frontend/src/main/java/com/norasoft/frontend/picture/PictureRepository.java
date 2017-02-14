@@ -1,4 +1,4 @@
-package com.norasoft.generator.picture;
+package com.norasoft.frontend.picture;
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -19,8 +19,8 @@ import org.springframework.web.client.RestTemplate;
 
 import org.springframework.stereotype.Component;
 
-import com.norasoft.generator.picture.Picture;
-import com.norasoft.generator.picture.PictureRepoClient;
+import com.norasoft.frontend.picture.Picture;
+import com.norasoft.frontend.picture.PictureRepoClient;
 
 @Component
 public class PictureRepository {
@@ -36,15 +36,20 @@ public class PictureRepository {
   private PictureRepoClient pictureRepoClient;
 
   private void init() {
-    if (runOnce) {
-      return;
+    try {
+      if (runOnce) {
+        return;
+      }
+
+      List<String> list = pictureRepoClient.listPictures();
+
+      for (String filename : list) {
+        save(new Picture(getImageName(filename), getResourceURL(filename)));
+      }
+      runOnce = true;
     }
-    runOnce = true;
-
-    List<String> list = pictureRepoClient.listPictures();
-
-    for (String filename : list) {
-      save(new Picture(getImageName(filename), getResourceURL(filename)));
+    catch (Exception e) {
+      e.printStackTrace();
     }
   }
 

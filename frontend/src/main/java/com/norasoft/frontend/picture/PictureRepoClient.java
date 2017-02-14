@@ -1,4 +1,4 @@
-package com.norasoft.generator.picture;
+package com.norasoft.frontend.picture;
 
 import java.util.List;
 

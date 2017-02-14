@@ -18,3 +18,11 @@ services:
     depends_on:
       - eureka
       - picture-repo
+  frontend:
+    image: 'frontend'
+    environment:
+      - EUREKA_URI=http://eureka:8761
+    depends_on:
+      - eureka
+      - picture-repo
+      - ascii-generator

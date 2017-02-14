@@ -34,10 +34,22 @@
 
     <div class="row">
 
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-10 col-md-offset-1">
+            {{#ascii}}
+            <!--<pre>-->
+              {{{content}}}
+            <!--</pre>-->
+            {{/ascii}}
+            {{^ascii}}
             <img class="img-responsive z-depth-2" src="{{picture.imageUrlAsString}}" alt="">
+            {{/ascii}}
             <div class="caption-full">
                 <div class="text-center">
+                    <button type="button"
+                            onclick="location.href='/pictures/{{picture.id}}';"
+                            class="btn btn-success waves-effect waves-light">
+                        Original
+                    </button>
                     <button type="button"
                             onclick="location.href='/pictures/{{picture.id}}/ascii';"
                             class="btn btn-success waves-effect waves-light">
