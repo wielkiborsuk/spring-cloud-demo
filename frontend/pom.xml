@@ -4,11 +4,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.norasoft</groupId>
-  <artifactId>ascii-generator</artifactId>
+  <artifactId>frontend</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>ascii-generator</name>
+  <name>frontend</name>
 
   <parent>
     <groupId>com.norasoft</groupId>
@@ -18,16 +18,10 @@
   </parent>
 
   <properties>
-    <start-class>com.norasoft.generator.AsciiGeneratorApplication</start-class>
+    <start-class>com.norasoft.frontend.FrontendApplication</start-class>
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>com.example</groupId>
-      <artifactId>jitac</artifactId>
-      <version>0.2.0</version>
-    </dependency>
-
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
@@ -142,13 +136,6 @@
   </build>
 
   <repositories>
-    <!--Jitac converter is not accessible from public repository-->
-    <repository>
-      <id>project.local</id>
-      <name>project</name>
-      <url>file:${project.basedir}/repo</url>
-    </repository>
-
     <repository>
       <id>spring-snapshots</id>
       <name>Spring Snapshots</name>
