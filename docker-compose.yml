@@ -5,18 +5,28 @@ services:
     hostname: eureka
     ports:
       - '8761:8761'
+  config-server:
+    image: 'config-server'
+    environment:
+      - EUREKA_URI=http://eureka:8761
+    depends_on:
+      - eureka
   picture-repo:
     image: 'picture-repo'
     environment:
       - EUREKA_URI=http://eureka:8761
+      - CONFIG_URI=http://config-server:8888
     depends_on:
       - eureka
+      - config-server
   ascii-generator:
     image: 'ascii-generator'
     environment:
       - EUREKA_URI=http://eureka:8761
+      - CONFIG_URI=http://config-server:8888
     depends_on:
       - eureka
+      - config-server
       - picture-repo
   frontend:
     image: 'frontend'

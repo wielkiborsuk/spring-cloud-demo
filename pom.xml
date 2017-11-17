@@ -12,6 +12,7 @@
 
     <modules>
         <module>eureka</module>
+        <module>config-server</module>
         <module>picture-repo</module>
         <module>ascii-generator</module>
         <module>frontend</module>
