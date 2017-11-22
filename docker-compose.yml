@@ -11,6 +11,12 @@ services:
       - EUREKA_URI=http://eureka:8761
     depends_on:
       - eureka
+  admin:
+    image: 'admin'
+    environment:
+      - EUREKA_URI=http://eureka:8761
+    depends_on:
+      - eureka
   picture-repo:
     image: 'picture-repo'
     environment:

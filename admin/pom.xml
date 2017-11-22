@@ -4,11 +4,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.norasoft</groupId>
-  <artifactId>picture-repo</artifactId>
+  <artifactId>admin</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>picture-repo</name>
+  <name>admin</name>
   <description>Demo project for Spring Boot</description>
 
   <parent>
@@ -19,21 +19,28 @@
   </parent>
 
   <properties>
-    <start-class>com.norasoft.picturerepo.PictureRepoApplication</start-class>
+    <start-class>com.norasoft.admin.AdminApplication</start-class>
   </properties>
 
   <dependencies>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
+      <groupId>de.codecentric</groupId>
+      <artifactId>spring-boot-admin-server</artifactId>
+      <version>1.4.2</version>
+    </dependency>
+    <dependency>
+      <groupId>de.codecentric</groupId>
+      <artifactId>spring-boot-admin-server-ui</artifactId>
+      <version>1.4.2</version>
+    </dependency>
+    <dependency>
+      <groupId>de.codecentric</groupId>
+      <artifactId>spring-boot-admin-server-ui-hystrix</artifactId>
+      <version>1.4.2</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-eureka</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.jolokia</groupId>
-      <artifactId>jolokia-core</artifactId>
     </dependency>
   </dependencies>
 
